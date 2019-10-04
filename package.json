@@ -1,0 +1,65 @@
+{
+	"name": "arcanist-vscode",
+	"displayName": "arcanist-vscode",
+	"description": "arcanist plugin for vscode",
+	"publisher": "jdxcode",
+	"version": "1.0.0",
+	"repository": {
+		"url": "https://github.com/jdxcode/arcanist-vscode"
+	},
+	"engines": {
+		"vscode": "^1.38.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "Arcanist",
+			"properties": {
+				"arcanist.pathToArc": {
+					"type": "string",
+					"description": "Path to arc bin"
+				},
+				"arcanist.debug": {
+					"type": "boolean",
+					"default": false,
+					"description": "Show debug output"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"compile": "tsc -p ./",
+		"package": "vsce package",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js",
+		"vscode:prepublish": "webpack --mode production",
+		"watch": "tsc -watch -p ./",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch"
+	},
+	"devDependencies": {
+		"@types/execa": "^2.0.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.38.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"ts-loader": "^6.2.0",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vsce": "^1.67.1",
+		"vscode-test": "^1.2.0",
+		"webpack": "^4.41.0",
+		"webpack-cli": "^3.3.9"
+	},
+	"dependencies": {
+		"execa": "^2.0.4"
+	}
+}
