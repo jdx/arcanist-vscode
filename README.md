@@ -1,4 +1,4 @@
-vscode extension for arcanist
+[vscode extension for arcanist](https://marketplace.visualstudio.com/items?itemName=jdxcode.arcanist-vscode)
 
 # Formatting with arc lint
 
