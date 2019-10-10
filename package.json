@@ -61,5 +61,10 @@
 	},
 	"dependencies": {
 		"execa": "^2.0.4"
+	},
+	"__metadata": {
+		"id": "39ef8ce8-4827-45b2-9eb0-816d467c6f59",
+		"publisherDisplayName": "jdxcode",
+		"publisherId": "51834022-b041-42bf-ace9-576c4005bbd5"
 	}
 }
