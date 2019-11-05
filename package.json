@@ -3,7 +3,7 @@
 	"displayName": "arcanist-vscode",
 	"description": "arcanist plugin for vscode",
 	"publisher": "jdxcode",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"repository": {
 		"url": "https://github.com/jdxcode/arcanist-vscode"
 	},
