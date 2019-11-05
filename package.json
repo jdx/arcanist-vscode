@@ -47,20 +47,20 @@
 		"@types/execa": "^2.0.0",
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^5.2.6",
-		"@types/node": "^10.12.21",
-		"@types/vscode": "^1.38.0",
-		"glob": "^7.1.4",
-		"mocha": "^6.1.4",
-		"ts-loader": "^6.2.0",
+		"@types/node": "^10.17.3",
+		"@types/vscode": "^1.39.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"ts-loader": "^6.2.1",
 		"tslint": "^5.12.1",
-		"typescript": "^3.3.1",
-		"vsce": "^1.67.1",
-		"vscode-test": "^1.2.0",
-		"webpack": "^4.41.0",
-		"webpack-cli": "^3.3.9"
+		"typescript": "^3.7.2",
+		"vsce": "^1.69.0",
+		"vscode-test": "^1.2.2",
+		"webpack": "^4.41.2",
+		"webpack-cli": "^3.3.10"
 	},
 	"dependencies": {
-		"execa": "^2.0.4"
+		"execa": "^3.2.0"
 	},
 	"__metadata": {
 		"id": "39ef8ce8-4827-45b2-9eb0-816d467c6f59",
