@@ -2,6 +2,6 @@
 
 # Formatting with arc lint
 
-Install the extension and set "jdxcode.arcanist-vscode" as your formatter and it will format with `arc lint`.
+Install the extension and set "jdxcode.arcanist-vscode" as your formatter and it will format with `arc lint`. (e.g.: `⌘⇧P > Format Document`)
 
 More features coming someday.
