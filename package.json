@@ -19,6 +19,23 @@
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
+		"commands": [
+			{
+				"command": "arc.diff.create",
+				"title": "Create diff",
+				"category": "arc"
+			},
+			{
+				"command": "arc.diff",
+				"title": "diff",
+				"category": "arc"
+			},
+			{
+				"command": "arc.diff.update",
+				"title": "Update diff",
+				"category": "arc"
+			}
+		],
 		"configuration": {
 			"title": "Arcanist",
 			"properties": {
