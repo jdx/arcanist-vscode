@@ -32,7 +32,9 @@ export interface ArcMessage {
   // arc typically ignores lines that were not edited, this bypasses that
   bypassChangedLineFiltering: boolean | null;
 }
-interface ArcJSON { [filename: string]: ArcMessage[] }
+interface ArcJSON {
+  [filename: string]: ArcMessage[];
+}
 
 export async function runArcDiff(fileName: string): Promise<ArcMessage[]> {
   const bin = config.pathToArc;
@@ -49,7 +51,9 @@ export async function runArcDiff(fileName: string): Promise<ArcMessage[]> {
 
 function getArcMessageForFile(json: ArcJSON, fileName: string): ArcMessage[] {
   const fileNames = Object.keys(json);
-  const key = fileNames.find((f) => fileName.endsWith(f));
-  if (!key) { throw new Error(`${fileName} not found in: ${fileNames.join(", ")}`); }
+  const key = fileNames.find(f => fileName.endsWith(f));
+  if (!key) {
+    throw new Error(`${fileName} not found in: ${fileNames.join(", ")}`);
+  }
   return json[key];
 }
