@@ -1,5 +1,6 @@
 import * as execa from "execa";
 import * as path from "path";
+import { window } from "vscode";
 import config from "./config";
 import { debug } from "./debug";
 
@@ -36,7 +37,7 @@ interface ArcJSON {
   [filename: string]: ArcMessage[];
 }
 
-export async function runArcDiff(fileName: string): Promise<ArcMessage[]> {
+export async function runArcLint(fileName: string): Promise<ArcMessage[]> {
   const bin = config.pathToArc;
   const args = ["lint", "--output", "json", fileName];
   debug(`$ ${bin} ${args.join(" ")}`);
@@ -47,6 +48,33 @@ export async function runArcDiff(fileName: string): Promise<ArcMessage[]> {
   const fileOutput = getArcMessageForFile(json, fileName);
   debug(fileOutput);
   return fileOutput;
+}
+
+export async function runArcDiff(flags?: string[]) {
+  const bin = config.pathToArc;
+  const command = [bin, "diff"];
+  const args = ["--config", "editor='code -w'"];
+  const term = window.createTerminal("arc diff");
+  const termText = command.concat(flags || [], args);
+  term.sendText(termText.join(" "));
+  term.show();
+}
+
+export async function createArcDiff() {
+  runArcDiff(["--create"]);
+}
+
+export async function updateArcDiff() {
+  const rev = await window.showInputBox({
+    placeHolder: "D123456",
+    validateInput: text => {
+      return text.match(/^D[1-9]+$/g) ? null : 'Revision should look like "D123456".';
+    },
+  });
+  if (!rev) {
+    return;
+  }
+  runArcDiff(["--update", rev]);
 }
 
 function getArcMessageForFile(json: ArcJSON, fileName: string): ArcMessage[] {

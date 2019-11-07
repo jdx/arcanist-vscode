@@ -7,7 +7,7 @@ import {
   TextEdit,
   window,
 } from "vscode";
-import { runArcDiff } from "./arc";
+import { runArcLint } from "./arc";
 import { debug, log } from "./debug";
 import Message from "./message";
 
@@ -34,7 +34,7 @@ export default class ArcFormattingEditProvider implements DocumentFormattingEdit
         }
       }
 
-      const output = await runArcDiff(fileName);
+      const output = await runArcLint(fileName);
       if (token.isCancellationRequested) {
         return [];
       }
