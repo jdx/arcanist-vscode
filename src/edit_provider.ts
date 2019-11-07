@@ -29,14 +29,18 @@ export default class ArcFormattingEditProvider implements DocumentFormattingEdit
       if (document.isDirty) {
         debug("saving before editing");
         await document.save();
-        if (token.isCancellationRequested) { return []; }
+        if (token.isCancellationRequested) {
+          return [];
+        }
       }
 
       const output = await runArcDiff(fileName);
-      if (token.isCancellationRequested) { return []; }
+      if (token.isCancellationRequested) {
+        return [];
+      }
 
       const messages = output
-        .map((m) => {
+        .map(m => {
           try {
             return new Message(m, document);
           } catch (err) {
@@ -51,8 +55,11 @@ export default class ArcFormattingEditProvider implements DocumentFormattingEdit
       const errors = [];
       for (const m of messages) {
         const edit = m.edit;
-        if (edit && m.arcMessage.severity === "autofix") { edits.push(edit); }
-        else { errors.push(m); }
+        if (edit && m.arcMessage.severity === "autofix") {
+          edits.push(edit);
+        } else {
+          errors.push(m);
+        }
       }
 
       diags.set(document.uri, errors);

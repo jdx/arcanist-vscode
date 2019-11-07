@@ -14,5 +14,3 @@ export function activate(context: ExtensionContext) {
     languages.registerCodeActionsProvider({ scheme: "file" }, new ArcCodeActionsProvider()),
   );
 }
-
-export function deactivate() {}

@@ -23,15 +23,21 @@ export default class ArcCodeActionsProvider implements CodeActionProvider {
     const actions = [];
     for (const m of messages) {
       const action = this.createAction(m, document);
-      if (action) { actions.push(action); }
+      if (action) {
+        actions.push(action);
+      }
     }
-    if (context.only) { return actions.filter((a) => a.kind === context.only); }
+    if (context.only) {
+      return actions.filter(a => a.kind === context.only);
+    }
     return actions;
   }
 
   public createAction(m: Message, document: TextDocument): CodeAction | undefined {
     const edit = m.edit;
-    if (!edit) { return; }
+    if (!edit) {
+      return;
+    }
     const original = document.getText(m.range);
     if (original !== m.arcMessage.original) {
       debug(`Text changed:\nA: ${inspect(original)}\nB: ${inspect(m.arcMessage.original)}`);
